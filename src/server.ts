@@ -55,7 +55,7 @@ export default class YjsServer implements Party.Server {
                             owner: 'a55b107a-8697-41a8-a943-804e3a60e956',
                             last_edited: new Date(Date.now()).toUTCString(),
                         });
-                    // console.log(data, error);
+                    console.log(data, error);
                 }
 
                 return new Doc();
@@ -64,7 +64,7 @@ export default class YjsServer implements Party.Server {
                 async handler(yDoc) {
                     // TODO: Write to database every few seconds after edits
                     // console.log(await encodeDoc(yDoc));
-                    await supabase
+                    const { error } = await supabase
                         .from('document')
                         .update({
                             last_edited: new Date(
@@ -73,6 +73,15 @@ export default class YjsServer implements Party.Server {
                             data: await encodeDoc(yDoc),
                         })
                         .eq('uuid', party.id);
+                    if (error) {
+                        await supabase.from('document').insert({
+                            uuid: party.id,
+                            data: await encodeDoc(new Doc()),
+                            // owner: searchParams.get('userId'),
+                            owner: 'a55b107a-8697-41a8-a943-804e3a60e956',
+                            last_edited: new Date(Date.now()).toUTCString(),
+                        });
+                    }
                 },
                 timeout: 2000,
             },
