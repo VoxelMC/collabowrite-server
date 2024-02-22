@@ -1,0 +1,6 @@
+{
+	"$schema": "https://www.partykit.io/schema.json",
+	"name": "collabowrite-server",
+	"main": "src/server.ts",
+	"compatibilityDate": "2024-02-16"
+}
