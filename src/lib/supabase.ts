@@ -4,6 +4,6 @@ import type { Room } from 'partykit/server';
 export function createSupabase(room: Room) {
     return createClient(
         room.env.SUPABASE_URL as string,
-        room.env.SUPABASE_ANON as string
+        room.env.SUPABASE_SERVICE as string
     );
 }

@@ -51,8 +51,8 @@ export default class YjsServer implements Party.Server {
                         .insert({
                             uuid: party.id,
                             data: await encodeDoc(new Doc()),
-                            // owner: searchParams.get('userId'),
-                            owner: 'a55b107a-8697-41a8-a943-804e3a60e956',
+                            owner: searchParams.get('userId'),
+                            // owner: 'a55b107a-8697-41a8-a943-804e3a60e956',
                             last_edited: new Date(Date.now()).toUTCString(),
                         });
                     console.log(data, error);
@@ -73,12 +73,13 @@ export default class YjsServer implements Party.Server {
                             data: await encodeDoc(yDoc),
                         })
                         .eq('uuid', party.id);
+                    party.broadcast('Saved.');
                     if (error) {
                         await supabase.from('document').insert({
                             uuid: party.id,
                             data: await encodeDoc(new Doc()),
-                            // owner: searchParams.get('userId'),
-                            owner: 'a55b107a-8697-41a8-a943-804e3a60e956',
+                            owner: searchParams.get('userId'),
+                            // owner: 'a55b107a-8697-41a8-a943-804e3a60e956',
                             last_edited: new Date(Date.now()).toUTCString(),
                         });
                     }
