@@ -8,6 +8,9 @@ dependencies:
   '@supabase/supabase-js':
     specifier: ^2.39.7
     version: 2.39.7
+  kittylog:
+    specifier: ^1.0.6
+    version: 1.0.6
   partysocket:
     specifier: ^0.0.25
     version: 0.0.25
@@ -581,6 +584,10 @@ packages:
 
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+    dev: false
+
+  /kittylog@1.0.6:
+    resolution: {integrity: sha512-h5qSTfSN1DAe4Ikulxj+xQV5V04fwtYzmFdDdhvJ9LGECs8OkB2YeZq8abNMvr9G1nqrf9jT7GHJRDH2VHr9ng==}
     dev: false
 
   /lib0@0.2.88:
