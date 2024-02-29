@@ -21,6 +21,7 @@ export default class YjsServer implements Party.Server {
         const supabase = this.supabase;
         const searchParams = new URL(conn.uri).searchParams;
 
+        console.log('%c' + 'Test Message', 'color: #420690');
         k.success(`┏━ Client Connected: ${conn.id}`);
         k.info(`┣━━━ room: ${this.party.id}`);
         k.info(`┣━━━ user: ${searchParams.get('userId')}`);
@@ -113,7 +114,7 @@ export default class YjsServer implements Party.Server {
 
     onMessage(message: Uint8Array, sender: Party.Connection) {
         // const k = kittylog;
-        // k.custom('magenta', 'MESSAGE', `Fr: ${sender.id}`);
+        k.message(`Fr: ${sender.id}`);
     }
 }
 

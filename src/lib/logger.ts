@@ -45,7 +45,7 @@ export function info(...message: string[]): void {
         ...message,
         colors.Reset,
     ];
-    console.log(msg.join(' ').trimStart().replace(/\n/g, '\n            '));
+    console.info(msg.join(' ').trimStart().replace(/\n/g, '\n            '));
 }
 
 export function warning(...message: string[]): void {
@@ -60,6 +60,15 @@ export function warning(...message: string[]): void {
 export function error(...message: string[]): void {
     const msg = [
         [colors.fg.Red, '▶ [ERROR]   '].join(''),
+        ...message,
+        colors.Reset,
+    ];
+    console.log(msg.join(' ').trimStart().replace(/\n/g, '\n            '));
+}
+
+export function message(...message: string[]): void {
+    const msg = [
+        [colors.fg.Cyan, '▶ [MESSAGE]'].join(''),
         ...message,
         colors.Reset,
     ];
